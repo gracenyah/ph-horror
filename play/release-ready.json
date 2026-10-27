@@ -1,0 +1,15 @@
+{
+  "ready": true,
+  "chapters": [
+    "Level01_Rumuola",
+    "Level02_Slaughter",
+    "Level03FloodedMile",
+    "Level04_NO18",
+    "Level05_Rumuokoro"
+  ],
+  "entry": "2625452.json",
+  "configSha256": "c8d0a943617f8f1797a38a03b59ed924766fe7b95b56697a56a5bd16ed79940e",
+  "releaseControllerSha256": "2690c941607982500e753e4606d67616a73c85c78fdf611a15b2a27158ebfd67",
+  "assetRights": "Current Mac voices retained at user request; public-use rights not cleared.",
+  "buildId": "handoff-20261027-02"
+}
