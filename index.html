@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Lost City: Port Harcourt</title>
-  <meta name="description" content="A cinematic third-person horror-action survival game set in Port Harcourt after The Blackout." />
+  <meta name="description" content="A five-chapter single-player survival horror game set in Port Harcourt after The Blackout. Play in a desktop browser with keyboard and mouse." />
+  <meta property="og:title" content="The Lost City: Port Harcourt" />
+  <meta property="og:description" content="Five chapters. One missing city. A single-player horror story set in Port Harcourt." />
+  <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Special+Elite&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -51,12 +54,12 @@
       <a href="#fear">Fear</a>
       <a href="#vehicles">Vehicles</a>
       <a href="#operative">Operative</a>
-      <a href="#multiplayer">Co-op</a>
+      <a href="#release">Release</a>
       <a href="#endings">Endings</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-btn" id="soundBtn" title="Toggle soundtrack" aria-label="Toggle soundtrack">🔇</button>
-      <a href="#join" class="btn btn-blood btn-sm">Join the Search</a>
+      <a href="#join" class="btn btn-blood btn-sm">Play the Game</a>
       <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
     </div>
   </header>
@@ -81,11 +84,12 @@
         </h1>
         <p class="hero-sub">A cinematic third-person horror-action survival game. Entire neighbourhoods are empty. Generators still run inside abandoned compounds. Something has been living beneath the city for decades — and it knows you're here.</p>
         <div class="hero-cta">
-          <a href="#join" class="btn btn-blood">Wishlist Now</a>
+          <a href="play/" class="btn btn-blood" data-game-link aria-disabled="true">Preparing game build</a>
           <button class="btn btn-ghost" id="replayIntro">▶ Watch Opening Cinematic</button>
         </div>
+        <p class="launch-status" data-launch-status role="status">Keyboard and mouse required. Headphones recommended. Contains flashing lights and sudden sounds.</p>
         <div class="hero-tags">
-          <span>Third-Person</span><span>Survival Horror</span><span>Tactical Combat</span><span>Open World</span><span>4-Player Co-op</span>
+          <span>Five Chapters</span><span>Survival Horror</span><span>Single-Player</span><span>Desktop Browser</span>
         </div>
       </div>
       <div class="scroll-hint">SCROLL · IF YOU DARE</div>
@@ -136,12 +140,12 @@
     <section class="section dark" id="levels">
       <div class="container">
         <p class="eyebrow">02 — THE CITY</p>
-        <h2 class="section-title">Ten districts. One connected nightmare.</h2>
-        <p class="lead narrow">Every level is a real part of greater Port Harcourt, rebuilt as an original game world — joined by roads, rivers, flyovers and tunnels you can travel between. Some routes only open later in the story.</p>
+        <h2 class="section-title">Five chapters. One missing city.</h2>
+        <p class="lead narrow">Follow a five-chapter story from Rumuola through Slaughter Market, the Flooded Mile, Diobu and Rumuokoro. Explore, recover recordings, solve puzzles and survive the creatures of the Blackout.</p>
 
         <div class="levels-wrap">
           <div class="map-box">
-            <svg id="mapSvg" viewBox="0 0 1000 640" role="img" aria-label="Map of the ten districts"></svg>
+            <svg id="mapSvg" viewBox="0 0 1000 640" role="img" aria-label="Map of the five chapters"></svg>
             <div class="map-legend">
               <span><i class="lg lg-road"></i>Roads</span>
               <span><i class="lg lg-river"></i>Rivers &amp; creeks</span>
@@ -158,8 +162,9 @@
     <!-- ============ CREATURES ============ -->
     <section class="section" id="creatures">
       <div class="container">
-        <p class="eyebrow">03 — FIELD BESTIARY</p>
+        <p class="eyebrow">03 — CONCEPT FIELD GUIDE</p>
         <h2 class="section-title">They were here before the city.</h2>
+        <p class="lead narrow">An illustrated concept guide from the world of the game. Some creatures shown here belong to ideas beyond this five-chapter release.</p>
         <p class="lead narrow">Original entities shaped by Niger Delta legend, urban rumour and the long dark of a Port Harcourt night. Each one hunts differently. Each one can be survived — if you learn how. Hover or tap a file to open it.</p>
         <div class="filters" id="creatureFilters">
           <button class="chip active" data-f="all">All</button>
@@ -174,7 +179,7 @@
     </section>
 
     <!-- ============ FEAR + HUD ============ -->
-    <section class="section dark" id="fear">
+    <section class="section dark" id="fear" data-site-preview="true">
       <div class="container">
         <p class="eyebrow">04 — SURVIVAL SYSTEMS</p>
         <h2 class="section-title">You can't trust what you see.</h2>
@@ -254,15 +259,15 @@
           <div class="feat"><span>🔦</span><h4>Battery Management</h4><p>Flashlights drain. Some creatures hate the light. Others follow it.</p></div>
           <div class="feat"><span>🔫</span><h4>Tactical Combat</h4><p>Real recoil, slow reloads, weapon durability and scarce ammo. You can't shoot everything.</p></div>
           <div class="feat"><span>🎒</span><h4>Weight Inventory</h4><p>Grid-based pack. Every medkit you carry is a magazine you leave behind.</p></div>
-          <div class="feat"><span>📻</span><h4>Radio Network</h4><p>Talk to survivors, co-op partners — and things that only pretend to be human.</p></div>
+          <div class="feat"><span>📻</span><h4>Radio Network</h4><p>Listen to recordings, survivors — and things that only pretend to be human.</p></div>
           <div class="feat"><span>🧗</span><h4>Full Traversal</h4><p>Walk, sprint, crouch, hide, climb, jump, swim and drive across a connected region.</p></div>
           <div class="feat"><span>🧩</span><h4>Environmental Puzzles</h4><p>Restore power, reroute pumps, decode broadcasts and open what was sealed.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ VEHICLES ============ -->
-    <section class="section" id="vehicles">
+    <!-- ============ VEHICLE CONCEPTS ============ -->
+    <section class="section" id="vehicles" data-site-preview="true">
       <div class="container">
         <p class="eyebrow">05 — THE GARAGE</p>
         <h2 class="section-title">Everything left behind still runs. Mostly.</h2>
@@ -281,8 +286,9 @@
     <!-- ============ OPERATIVE CREATOR ============ -->
     <section class="section dark" id="operative">
       <div class="container">
-        <p class="eyebrow">06 — CREATE YOUR SURVIVOR</p>
-        <h2 class="section-title">Who walks into the dark?</h2>
+        <p class="eyebrow">06 — INTERACTIVE SITE PROFILE</p>
+        <h2 class="section-title">Imagine your survivor.</h2>
+        <p class="lead narrow">A profile for this website’s interactive previews. It is stored only in this browser and does not change the campaign character.</p>
         <div class="creator">
           <div class="creator-preview">
             <svg id="avatar" viewBox="0 0 300 380" aria-label="Character preview"></svg>
@@ -314,7 +320,7 @@
             <div class="swatches" id="clothSw"></div>
             <div class="creator-actions">
               <button class="btn btn-ghost btn-sm" id="randomBtn" type="button">🎲 Randomise</button>
-              <button class="btn btn-blood btn-sm" id="saveOp" type="button">Save Survivor</button>
+              <button class="btn btn-blood btn-sm" id="saveOp" type="button">Save Site Profile</button>
             </div>
             <p class="saved-msg" id="savedMsg"></p>
           </form>
@@ -322,53 +328,27 @@
       </div>
     </section>
 
-    <!-- ============ MULTIPLAYER ============ -->
-    <section class="section" id="multiplayer">
+    <!-- ============ RELEASE ============ -->
+    <section class="section" id="release">
       <div class="container">
-        <p class="eyebrow">07 — NOBODY SURVIVES ALONE</p>
-        <h2 class="section-title">Explore the same dead city together.</h2>
-        <div class="mp-grid">
-          <div class="mp-modes">
-            <div class="mode"><h4>Co-op Campaign</h4><p>Up to 4 players through all ten districts. Shared story decisions — majority vote at key moments.</p></div>
-            <div class="mode"><h4>Team Missions</h4><p>Side operations: restore a substation, recover a convoy, extract a survivor under fire.</p></div>
-            <div class="mode"><h4>Survival Challenge</h4><p>Weekly modifiers. No flashlights. One magazine. Permanent night. Leaderboards reset Sundays.</p></div>
-            <div class="mode"><h4>Last Light</h4><p>Large-scale multiplayer survival. Squads drop into the city. The creatures don't pick sides.</p></div>
-          </div>
-          <div class="leaderboard">
-            <div class="lb-head">
-              <h4>Survival Leaderboard</h4>
-              <div class="lb-tabs" id="lbTabs">
-                <button class="chip active" data-t="weekly">Weekly</button>
-                <button class="chip" data-t="all">All-time</button>
-              </div>
-            </div>
-            <ol class="lb-list" id="lbList"></ol>
-            <div class="lb-perks">
-              <span>🏅 Achievements</span><span>⭐ XP &amp; Ranks</span><span>👕 Unlockable outfits</span><span>👥 Friends &amp; Profiles</span>
-            </div>
-          </div>
+        <p class="eyebrow">07 — THE FIVE-CHAPTER RELEASE</p>
+        <h2 class="section-title">One survivor. Five chapters.</h2>
+        <div class="mp-modes">
+          <div class="mode"><h4>Single-player campaign</h4><p>Investigate Rumuola, survive Slaughter Market, cross the Flooded Mile, escape Diobu and face the source beneath Rumuokoro.</p></div>
+          <div class="mode"><h4>Play in your browser</h4><p>Use a desktop or laptop with a keyboard and mouse. Headphones are recommended. The game contains flashing lights, sudden sounds and horror combat.</p></div>
+          <div class="mode"><h4>Controls</h4><p>WASD moves, Shift sprints and E interacts. Later chapters introduce combat controls, shown when you acquire each weapon. In chapter five, G draws or holsters, X reloads, H heals and Q dashes.</p></div>
+          <div class="mode"><h4>Future chapters</h4><p>This release tells a complete five-chapter story. Future expansion will depend on player feedback. Multiplayer is not included.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ ENDINGS ============ -->
+    <!-- ============ FINALE ============ -->
     <section class="section dark underground" id="endings">
       <div class="container">
-        <p class="eyebrow">08 — THE SOURCE · DEEPEST CHAMBER</p>
-        <h2 class="section-title">Something beneath Etche is breathing.</h2>
-        <p class="lead narrow">Your choices across all ten districts — who you saved, what you read, what you left buried — shape the final chamber. Then you decide.</p>
-        <div class="endings">
-          <button class="ending" data-e="destroy">
-            <span class="e-num">I</span><h3>DESTROY IT</h3><p>Collapse the source. Risk taking part of the city down with it.</p>
-          </button>
-          <button class="ending" data-e="escape">
-            <span class="e-num">II</span><h3>ESCAPE</h3><p>Get out of Port Harcourt alive. Leave the mystery unsolved.</p>
-          </button>
-          <button class="ending" data-e="truth">
-            <span class="e-num">III</span><h3>UNCOVER THE TRUTH</h3><p>Stay behind. Learn what really happened beneath the city.</p>
-          </button>
-        </div>
-        <div class="ending-out" id="endingOut"></div>
+        <p class="eyebrow">08 — BENEATH THE CROSSROADS</p>
+        <h2 class="section-title">Follow the signal to its source.</h2>
+        <p class="lead narrow">The recordings connect the missing people, the silent houses and the attacked convoy. The final chapter brings the investigation beneath Rumuokoro. What is waiting there has learned how to call you closer.</p>
+        <div id="endingOut"></div>
       </div>
     </section>
 
@@ -400,13 +380,12 @@
       <div class="container join-box">
         <p class="eyebrow flicker">THE BLACKOUT HAS BEGUN</p>
         <h2 class="section-title">Port Harcourt is empty.<br /><span class="red">Something is still there.</span></h2>
-        <form class="join-form" id="joinForm">
-          <input type="email" id="joinEmail" placeholder="your@email.com" required aria-label="Email address" />
-          <select id="joinPlat" aria-label="Platform"><option>PC</option><option>PlayStation</option><option>Xbox</option></select>
-          <button class="btn btn-blood" type="submit">Join the Search Party</button>
-        </form>
-        <p class="join-msg" id="joinMsg"></p>
-        <div class="countdown" id="countdown"></div>
+        <p class="lead">The complete five-chapter story is designed for desktop browsers.</p>
+        <a href="play/" class="btn btn-blood" data-game-link aria-disabled="true">Preparing game build</a>
+        <p class="join-msg" id="joinMsg" data-launch-status role="status">The playable build is being prepared.</p>
+        <p class="muted">No account or email signup is required. Site-profile preferences stay in this browser.</p>
+        <p><a href="https://github.com/gracenyah/ph-horror/issues/new" target="_blank" rel="noopener noreferrer">Report a problem or share feedback</a></p>
+
       </div>
     </section>
   </main>
@@ -415,13 +394,13 @@
     <div class="container foot-grid">
       <div>
         <div class="logo"><span class="logo-mark">◐</span><span>THE LOST CITY<small>PORT HARCOURT</small></span></div>
-        <p class="muted">A work of fiction. Locations are reimagined for an original game world. All characters, creatures, music and visuals are original.</p>
+        <p class="muted">A work of fiction. Locations are reimagined for an original game world. An independent horror game inspired by a reimagined Port Harcourt.</p>
       </div>
       <div class="foot-links">
-        <a href="#story">Story</a><a href="#levels">Levels</a><a href="#creatures">Creatures</a><a href="#vehicles">Vehicles</a><a href="#multiplayer">Co-op</a><a href="#join">Wishlist</a>
+        <a href="#story">Story</a><a href="#levels">Levels</a><a href="#creatures">Creatures</a><a href="#vehicles">Vehicles</a><a href="#release">Release</a><a href="#join">Play</a>
       </div>
     </div>
-    <p class="copy">© 2026 The Lost City: Port Harcourt. Concept site.</p>
+    <p class="copy">© 2026 The Lost City: Port Harcourt. Five-chapter release.</p>
   </footer>
 
   <!-- Modal -->
@@ -433,5 +412,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="launch.js"></script>
 </body>
 </html>

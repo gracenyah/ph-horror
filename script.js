@@ -623,59 +623,35 @@
       desc: 'You enter an abandoned Rumuola neighbourhood. Cars lie scattered across the road. Somewhere inside an empty compound, a generator is still running. Then you hear a child calling for help from inside a house.',
       event: 'The house is empty. The front door slowly closes behind you. Photographs of the missing cover the walls — and a radio switches itself on: “You should not have come here.”',
       missions: ['Explore abandoned houses', 'Search compounds', 'Find your first weapon', 'Recover the field radio', 'Learn survival basics', 'First creature encounter'],
-      enemies: ['The Hummers'], bg: 'radial-gradient(circle at 70% 30%, #ffb347, transparent 60%)' },
+      enemies: ['The Caller'], bg: 'radial-gradient(circle at 70% 30%, #ffb347, transparent 60%)' },
     { n: 2, key: 'SLAUGHTER', title: 'The Dead Market', x: 565, y: 375, time: 'Dusk · Heavy rain', threat: 3,
       desc: 'An abandoned market under a roof of plastic sheets snapping in the wind. Generators run with nobody to feed them fuel. Old televisions switch on. Disconnected radios start broadcasting voices.',
       event: 'Something moves between the stalls. It cannot see you — but it can hear every step, every bottle, every breath.',
-      missions: ['Stealth through the stalls', 'Scavenge limited ammunition', 'Restore the market breaker (puzzle)', 'Survive the first major encounter', 'Escape sequence'],
-      enemies: ['Nne Ahịa — The Market Mother'], bg: 'radial-gradient(circle at 30% 70%, #3d7fd1, transparent 60%)' },
-    { n: 3, key: 'RUMUKURUSHI', title: 'The Watcher', x: 650, y: 240, time: 'Midnight · Total darkness', threat: 3,
-      desc: 'Rumukurushi is almost completely dark. As you walk, streetlights turn on one by one ahead of you.',
-      event: 'Every time a light comes on, a shadow is standing farther down the road. Look away. Look back. It is closer.',
-      missions: ['Urban exploration', 'Avoid the Watcher’s line of sight', 'Find and fuel a working vehicle', 'Reach the pharmacy rooftop'],
-      enemies: ['The Lamplighter'], bg: 'radial-gradient(circle at 50% 20%, #ffd27a, transparent 55%)' },
+      missions: ['Stealth through the stalls', 'Recover tools and evidence', 'Restore the market breaker (puzzle)', 'Survive the first major encounter', 'Escape sequence'],
+      enemies: ['The Listener'], bg: 'radial-gradient(circle at 30% 70%, #3d7fd1, transparent 60%)' },
+    { n: 3, key: 'THE FLOODED MILE', title: 'The Flooded Mile', x: 650, y: 240, time: 'Night · Flooded roads', threat: 4,
+      desc: 'Floodwater cuts through the road. Abandoned vehicles and a stranded bus mark the route toward an evacuation checkpoint.',
+      event: 'The lights return, but the crossing is being watched. Unit 04 may be your only way out.',
+      missions: ['Investigate the stranded bus', 'Cross the flooded route', 'Use flares', 'Restore checkpoint power', 'Escape in Unit 04'],
+      enemies: ['The Watcher'], bg: 'radial-gradient(circle at 50% 20%, #7fd6ff, transparent 55%)' },
     { n: 4, key: 'DIOBU', title: 'The Vanished City', x: 330, y: 385, time: 'Night · Drizzle and fog', threat: 3,
-      desc: 'Diobu has become a ghost town of shuttered shops and silent compounds. In the streets: hundreds of phones, left behind by the missing.',
+      desc: 'Diobu has become a ghost town of shuttered shops and silent compounds. Abandoned phones and recordings remain where their owners vanished. One house still has its lights on.',
       event: 'Some of the phones begin to ring. Answer one, and a recording plays — residents describing voices coming from beneath their floors.',
       missions: ['Investigate abandoned buildings', 'Collect voice recordings', 'Search for survivors', 'Locate underground entrances', 'Fight hostile creatures'],
-      enemies: ['The Caller', 'The Hummers'], bg: 'radial-gradient(circle at 60% 60%, #7fd6ff, transparent 55%)' },
+      enemies: ['An unknown presence'], bg: 'radial-gradient(circle at 60% 60%, #7fd6ff, transparent 55%)' },
     { n: 5, key: 'RUMUOKORO', title: 'The Crossroads', x: 470, y: 115, time: 'Pre-dawn · Storm easing', threat: 4,
       desc: 'One of the largest open areas in the game. Traffic stopped mid-journey. Vehicles abandoned in every lane while creatures move between the buildings.',
       event: 'A military convoy lies attacked and overturned. Its crates hold weapons, medicine and the first official documents about The Blackout.',
-      missions: ['Cross the open junction', 'Investigate the convoy', 'Recover the investigators’ documents', 'Survive coordinated ambushes', 'Claim a tactical vehicle'],
-      enemies: ['The Hummers', 'The Lamplighter'], bg: 'radial-gradient(circle at 40% 30%, #b3121c, transparent 60%)' },
-    { n: 6, key: 'AGIP FLYOVER', title: 'The Collapse', x: 255, y: 250, time: 'Night · Massive storm', threat: 4,
-      desc: 'Abandoned vehicles choke the flyover. Lightning reveals figures standing on their roofs. Enemies below, enemies above.',
-      event: 'Inside a military vehicle, a looping transmission: the structures under Port Harcourt are far older than anyone believed.',
-      missions: ['Vehicle combat across the flyover', 'Long-range engagements in the lightning', 'Survive a large enemy attack', 'Escape the partial collapse'],
-      enemies: ['The Hummers', 'The Drowned Congregation (below)'], bg: 'radial-gradient(circle at 50% 10%, #cfe3ff, transparent 50%)' },
-    { n: 7, key: 'BOROKIRI', title: 'The Waterfront', x: 425, y: 525, time: 'Night · Flooding', threat: 4,
-      desc: 'Heavy rain has flooded the streets down to the waterfront. Boats sit abandoned on the river. Something moves underneath the water.',
-      event: 'Inside a flooded church hall, the water around your knees begins to hum.',
-      missions: ['Explore flooded buildings', 'Swim between submerged streets', 'Pilot a boat through the creeks', 'Find the waterfront underground entrance'],
-      enemies: ['The Drowned Congregation'], bg: 'radial-gradient(circle at 50% 90%, #1d5e8f, transparent 60%)' },
-    { n: 8, key: 'IWOFE', title: 'The Dark Road', x: 130, y: 330, time: 'Night · Mist over the bush', threat: 4,
-      desc: 'The city thins into vegetation and long, empty roads. Your radio picks up a survivor who knows the way. They give you directions.',
-      event: 'The survivor knows things they couldn’t. The voice on the radio is not human — and you have been following it for hours.',
-      missions: ['Long-distance driving', 'Navigate dense bush paths', 'Follow — or ignore — the radio', 'Reach the forgotten village'],
-      enemies: ['The Caller', 'The Name-Speaker'], bg: 'radial-gradient(circle at 20% 50%, #2b6b3c, transparent 60%)' },
-    { n: 9, key: 'ELEME JUNCTION', title: 'The Industrial Zone', x: 805, y: 365, time: 'Night · Gas flares and rain', threat: 5,
-      desc: 'Pipelines, warehouses, storage tanks, abandoned trucks and security checkpoints. Evidence that a secret organisation was studying the phenomenon.',
-      event: 'Something enormous begins to move through the pipe yard. It is hunting you by the sound of your engine.',
-      missions: ['Infiltrate the industrial compound', 'Heavy combat at the checkpoints', 'Escape the Iron Ancestor in a vehicle chase', 'Use pressure valves against it', 'Find the secret facility entrance'],
-      enemies: ['Agbara Igwe — The Iron Ancestor', 'The Hummers'], bg: 'radial-gradient(circle at 80% 70%, #ff8c28, transparent 55%)' },
-    { n: 10, key: 'ETCHE', title: 'The Source', x: 825, y: 95, time: 'Unknown · Underground', threat: 5,
-      desc: 'Dense forest. Forgotten villages. Ancient structures. And beneath them, a vast underground complex: surveillance rooms, laboratories, tunnels, strange symbols and the recordings of every investigator who came before you.',
-      event: 'Someone intentionally opened something that should have remained buried. In the deepest chamber, it is waiting for your decision.',
-      missions: ['Explore the forest villages', 'Enter the underground complex', 'Recover the last investigator logs', 'Reach the deepest chamber', 'Make the final decision'],
-      enemies: ['The One Below', 'The Name-Speaker', 'Everything you left alive'], bg: 'radial-gradient(circle at 50% 50%, #b3121c, transparent 50%)' }
+      missions: ['Cross the open junction', 'Investigate the convoy', 'Recover the investigators’ documents', 'Survive coordinated ambushes', 'Restore isolation power and confront the source'],
+      enemies: ['Roaming creatures', 'The Junction Source'], bg: 'radial-gradient(circle at 40% 30%, #b3121c, transparent 60%)' }
+
   ];
 
   function initLevels() {
     const svg = $('#mapSvg');
     const byN = n => LEVELS[n - 1];
-    const roads = [[1, 5], [1, 2], [1, 4], [1, 6], [2, 3], [2, 7], [3, 5], [3, 9], [4, 7], [4, 6], [6, 8], [5, 10], [9, 10], [2, 9], [5, 6]];
-    const tunnels = [[4, 7], [7, 9], [9, 10], [1, 4]];
+    const roads = [[1, 2], [2, 3], [3, 4], [4, 5], [1, 4]];
+    const tunnels = [[4, 5]];
     let s = '';
     // faint grid
     for (let i = 0; i <= 1000; i += 50) s += `<line x1="${i}" y1="0" x2="${i}" y2="640" stroke="rgba(120,160,210,.05)"/>`;
@@ -719,7 +695,7 @@
       const p = $('#levelPanel');
       p.style.setProperty('--lvl-bg', L.bg);
       p.innerHTML = `
-        <div class="lp-num">LEVEL ${String(L.n).padStart(2, '0')} / 10</div>
+        <div class="lp-num">LEVEL ${String(L.n).padStart(2, '0')} / 5</div>
         <h3 class="lp-title">${L.key}</h3>
         <div class="lp-sub">${L.title}</div>
         <p class="lp-desc">${L.desc}</p>
@@ -730,7 +706,7 @@
         <div class="lp-label">Known entities</div>
         <ul class="lp-list">${L.enemies.map(m => `<li>${m}</li>`).join('')}</ul>
         <div class="lp-meta"><span>Conditions: <b>${L.time}</b></span><span>Threat: <b class="threat">${'■'.repeat(L.threat)}${'□'.repeat(5 - L.threat)}</b></span></div>`;
-      if (n >= 8) addFear(2);
+      if (n >= 4) addFear(2);
     }
     svg.addEventListener('click', e => { const g = e.target.closest('.map-node'); if (g) select(+g.dataset.n); });
     svg.addEventListener('keydown', e => { const g = e.target.closest('.map-node'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(+g.dataset.n); } });
@@ -1032,7 +1008,7 @@
     { name: 'Armored Transport', type: 'armored', col: '#2a2f35', cat: 'Tactical', desc: 'Slab-sided cash transport. Slow, loud and almost impossible to stop.', s: [42, 95, 28, 90], tags: ['Keys required', 'Rare'] },
     { name: 'Police Interceptor', type: 'police', col: '#e9edf2', cat: 'Emergency', desc: 'Found outside empty police stations. The siren still works — careful.', s: [85, 40, 72, 35], tags: ['Repair needed'] },
     { name: 'Field Ambulance', type: 'ambulance', col: '#eef2f5', cat: 'Emergency', desc: 'Stocked with medical supplies if you reach it first.', s: [60, 40, 50, 85], tags: ['Hospital zones'] },
-    { name: 'Rain-Line Commuter Bus', type: 'bus', col: '#e0b11d', cat: 'Civilian', desc: 'Nigerian-style yellow commuter bus. Seats the whole co-op squad.', s: [52, 45, 35, 80], tags: ['Co-op favourite'] },
+    { name: 'Rain-Line Commuter Bus', type: 'bus', col: '#e0b11d', cat: 'Civilian', desc: 'Nigerian-style yellow commuter bus. A concept vehicle from the wider city.', s: [52, 45, 35, 80], tags: ['Concept vehicle'] },
     { name: 'Family Sedan', type: 'sedan', col: '#3a4656', cat: 'Civilian', desc: 'Quiet engine — the best choice for slipping past sound-hunters.', s: [72, 25, 70, 40], tags: ['Quiet'] },
     { name: 'Okada Motorcycle', type: 'moto', col: '#b3121c', cat: 'Civilian', desc: 'The fastest way through jammed traffic. Zero protection.', s: [92, 5, 90, 10], tags: ['Loud', 'Two riders'] },
     { name: 'Delivery Van', type: 'van', col: '#4a5361', cat: 'Civilian', desc: 'Big storage, poor handling. Some still have their cargo.', s: [55, 35, 42, 92], tags: ['Loot inside'] },
@@ -1172,6 +1148,7 @@
   };
   let lbTab = 'weekly';
   function renderLeaderboard() {
+    if (!$('#lbList')) return;
     const rows = LB[lbTab].map(r => ({ n: r[0], d: r[1], t: r[2], you: false }));
     if (survivor && survivor.name) rows.splice(6, 0, { n: survivor.name + ' (you)', d: 'Rumuola', t: '00:00:00', you: true });
     $('#lbList').innerHTML = rows.slice(0, 9).map(r => `<li class="${r.you ? 'you' : ''}"><span class="lb-name">${escapeHtml(r.n)}</span><span class="lb-dist">${r.d}</span><span class="lb-time">${r.t}</span></li>`).join('');
@@ -1303,22 +1280,8 @@
     addEventListener('keydown', e => { if (e.key === 'Escape') $('#modal').classList.add('hidden'); });
   }
   function initJoin() {
-    $('#joinForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const em = $('#joinEmail').value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { $('#joinMsg').textContent = 'That address doesn’t look right.'; return; }
-      const list = store.get('tlc_waitlist', []); list.push({ email: em, platform: $('#joinPlat').value, at: Date.now() }); store.set('tlc_waitlist', list);
-      $('#joinMsg').textContent = `You’re on the list, ${playerName()}. Keep your radio on.`;
-      $('#joinEmail').value = ''; SND.fx.static(.4, .2);
-    });
-    const target = new Date('2027-10-31T00:00:00+01:00').getTime();
-    const cd = $('#countdown');
-    const tick = () => {
-      let s = Math.max(0, Math.floor((target - Date.now()) / 1000));
-      const d = Math.floor(s / 86400); s %= 86400; const h = Math.floor(s / 3600); s %= 3600; const m = Math.floor(s / 60); s %= 60;
-      cd.innerHTML = [[d, 'DAYS'], [h, 'HOURS'], [m, 'MINUTES'], [s, 'SECONDS']].map(([v, l]) => `<div><b>${String(v).padStart(2, '0')}</b><span>${l}</span></div>`).join('');
-    };
-    tick(); setInterval(tick, 1000);
+    // No simulated email waitlist or invented launch countdown in the release site.
+    // The separate launch controller updates all play buttons from build readiness.
   }
 
   /* =========================================================
@@ -1334,7 +1297,7 @@
 
     initRain(); lightningLoop(); initCity(); initNav(); initTicker();
     initRadio(); initLevels(); initCreatures(); initHud(); initVehicles();
-    initCreator(); initLeaderboard(); initEndings(); initMixer(); initFear();
+    initCreator(); initEndings(); initMixer(); initFear();
     initModal(); initJoin(); initReveal();
   });
 })();

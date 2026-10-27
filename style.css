@@ -525,3 +525,9 @@ p + p { margin-top: 14px; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .rain-canvas { display: none; }
 }
+/* Launch information fits the existing visual identity. */
+.launch-status { max-width: 650px; margin: 18px 0; color: #b8c6ce; font: 13px/1.7 monospace; }
+[data-game-link][aria-disabled="true"] { opacity: .65; cursor: progress; }
+[data-game-link]:focus-visible { outline: 3px solid #f0c16d; outline-offset: 5px; }
+#join .lead { margin-bottom: 24px; }
+#release .mode { max-width: 850px; }
