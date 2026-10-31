@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lost City: Port Harcourt</title>
+  <meta name="description" content="A cinematic third-person horror-action survival game set in Port Harcourt after The Blackout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Special+Elite&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ CINEMATIC INTRO ============ -->
+  <div id="intro" class="intro">
+    <canvas id="introCanvas"></canvas>
+    <div class="intro-rainglass"></div>
+    <div class="intro-text" id="introText"></div>
+    <div class="intro-title" id="introTitle">
+      <span class="t-small">THE LOST CITY</span>
+      <span class="t-big">PORT HARCOURT</span>
+    </div>
+    <div class="intro-start" id="introStart">
+      <p class="intro-warn">Best experienced with headphones. Contains flashing lights.</p>
+      <button class="btn btn-blood" id="startBtn">▶ Begin Transmission</button>
+      <button class="btn btn-ghost" id="skipBtn">Skip intro (silent)</button>
+    </div>
+    <button class="intro-skip hidden" id="skipRunning">Skip ›</button>
+  </div>
+
+  <!-- ============ GLOBAL ATMOSPHERE LAYERS ============ -->
+  <canvas id="rainCanvas" class="rain-canvas" aria-hidden="true"></canvas>
+  <div class="lightning" id="lightning" aria-hidden="true"></div>
+  <div class="fog" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="phantom" id="phantom" aria-hidden="true"></div>
+  <div class="whisper" id="whisper" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#home" class="logo">
+      <span class="logo-mark">◐</span>
+      <span>THE LOST CITY<small>PORT HARCOURT</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#story">Story</a>
+      <a href="#levels">Levels</a>
+      <a href="#creatures">Creatures</a>
+      <a href="#fear">Fear</a>
+      <a href="#vehicles">Vehicles</a>
+      <a href="#operative">Operative</a>
+      <a href="#multiplayer">Co-op</a>
+      <a href="#endings">Endings</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="soundBtn" title="Toggle soundtrack" aria-label="Toggle soundtrack">🔇</button>
+      <a href="#join" class="btn btn-blood btn-sm">Join the Search</a>
+      <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- ============ SITE-WIDE FEAR METER ============ -->
+  <aside class="fear-widget" id="fearWidget" title="Your fear rises in the dark.">
+    <div class="fear-label">FEAR</div>
+    <div class="fear-track"><div class="fear-fill" id="fearFill"></div></div>
+    <div class="fear-num" id="fearNum">0</div>
+    <button class="flare-btn" id="flareBtn" title="Light a flare (reset fear)">🔥</button>
+  </aside>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <canvas id="cityCanvas" class="city-canvas"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow flicker">// RIVERS STATE · NIGERIA · 72 HOURS AFTER THE BLACKOUT</p>
+        <h1 class="hero-title">
+          <span class="ht-1">THE LOST CITY</span>
+          <span class="ht-2" data-text="PORT HARCOURT">PORT HARCOURT</span>
+        </h1>
+        <p class="hero-sub">A cinematic third-person horror-action survival game. Entire neighbourhoods are empty. Generators still run inside abandoned compounds. Something has been living beneath the city for decades — and it knows you're here.</p>
+        <div class="hero-cta">
+          <a href="#join" class="btn btn-blood">Wishlist Now</a>
+          <button class="btn btn-ghost" id="replayIntro">▶ Watch Opening Cinematic</button>
+        </div>
+        <div class="hero-tags">
+          <span>Third-Person</span><span>Survival Horror</span><span>Tactical Combat</span><span>Open World</span><span>4-Player Co-op</span>
+        </div>
+      </div>
+      <div class="scroll-hint">SCROLL · IF YOU DARE</div>
+    </section>
+
+    <!-- ============ STATUS TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- ============ STORY ============ -->
+    <section class="section" id="story">
+      <div class="container story-grid">
+        <div>
+          <p class="eyebrow">01 — THE TRANSMISSION</p>
+          <h2 class="section-title">“If you're hearing this… don't come looking for us.”</h2>
+          <p class="lead">Then the signal died.</p>
+          <p>During The Blackout, Port Harcourt went dark in a single second. By morning, the people were gone — from Rumuola to Borokiri, from Diobu to Eleme. Cars stood with their doors open. Pots were still on the fire. Phones lay in the streets, still ringing.</p>
+          <p>You enter the city searching for the missing. Their journals, voice notes and photographs point to the same thing: a group of investigators had been mapping strange structures beneath the city — structures older than the city itself.</p>
+          <p class="redacted-line">The Blackout was not an accident. Someone <span class="redact" tabindex="0">intentionally opened</span> something that should have <span class="redact" tabindex="0">remained buried</span>.</p>
+          <div class="questions">
+            <div class="q"><span>I</span>What happened here?</div>
+            <div class="q"><span>II</span>Where did everyone go?</div>
+            <div class="q"><span>III</span>What is following me?</div>
+            <div class="q"><span>IV</span>What exactly did they wake up?</div>
+          </div>
+        </div>
+
+        <!-- Radio -->
+        <div class="radio" id="radio">
+          <div class="radio-top">
+            <span class="radio-brand">FIELD RECEIVER · MK-II</span>
+            <span class="radio-led" id="radioLed"></span>
+          </div>
+          <div class="radio-screen">
+            <div class="radio-freq"><span id="freqVal">88.0</span> <small>MHz</small></div>
+            <canvas id="radioWave" width="320" height="60"></canvas>
+            <div class="radio-msg" id="radioMsg">— static —</div>
+          </div>
+          <input type="range" id="tuner" min="880" max="1080" value="880" aria-label="Tune radio frequency" />
+          <div class="radio-scale"><span>88</span><span>92</span><span>96</span><span>100</span><span>104</span><span>108</span></div>
+          <p class="radio-hint">Drag the dial. Some frequencies are still broadcasting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEVELS ============ -->
+    <section class="section dark" id="levels">
+      <div class="container">
+        <p class="eyebrow">02 — THE CITY</p>
+        <h2 class="section-title">Ten districts. One connected nightmare.</h2>
+        <p class="lead narrow">Every level is a real part of greater Port Harcourt, rebuilt as an original game world — joined by roads, rivers, flyovers and tunnels you can travel between. Some routes only open later in the story.</p>
+
+        <div class="levels-wrap">
+          <div class="map-box">
+            <svg id="mapSvg" viewBox="0 0 1000 640" role="img" aria-label="Map of the ten districts"></svg>
+            <div class="map-legend">
+              <span><i class="lg lg-road"></i>Roads</span>
+              <span><i class="lg lg-river"></i>Rivers &amp; creeks</span>
+              <span><i class="lg lg-tunnel"></i>Underground</span>
+            </div>
+          </div>
+          <article class="level-panel" id="levelPanel"></article>
+        </div>
+
+        <div class="level-strip" id="levelStrip"></div>
+      </div>
+    </section>
+
+    <!-- ============ CREATURES ============ -->
+    <section class="section" id="creatures">
+      <div class="container">
+        <p class="eyebrow">03 — FIELD BESTIARY</p>
+        <h2 class="section-title">They were here before the city.</h2>
+        <p class="lead narrow">Original entities shaped by Niger Delta legend, urban rumour and the long dark of a Port Harcourt night. Each one hunts differently. Each one can be survived — if you learn how. Hover or tap a file to open it.</p>
+        <div class="filters" id="creatureFilters">
+          <button class="chip active" data-f="all">All</button>
+          <button class="chip" data-f="Sound">Sound</button>
+          <button class="chip" data-f="Light">Light</button>
+          <button class="chip" data-f="Movement">Movement</button>
+          <button class="chip" data-f="Fear">Fear</button>
+          <button class="chip" data-f="Vehicles">Vehicles</button>
+        </div>
+        <div class="creature-grid" id="creatureGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ FEAR + HUD ============ -->
+    <section class="section dark" id="fear">
+      <div class="container">
+        <p class="eyebrow">04 — SURVIVAL SYSTEMS</p>
+        <h2 class="section-title">You can't trust what you see.</h2>
+        <p class="lead narrow">Health, stamina, batteries and ammunition keep you alive. The Fear meter decides what's real. Try the live HUD below — every button changes the state of your survivor.</p>
+
+        <div class="hud-demo" id="hudDemo">
+          <div class="hud-scene" id="hudScene">
+            <div class="hud-flashlight" id="hudFlash"></div>
+            <div class="hud-shadow" id="hudShadow"></div>
+
+            <!-- HUD: compass -->
+            <div class="hud-compass">
+              <div class="compass-strip" id="compassStrip"></div>
+              <div class="compass-pin"></div>
+            </div>
+
+            <!-- HUD: objective -->
+            <div class="hud-objective">
+              <div class="obj-label">OBJECTIVE</div>
+              <div class="obj-text" id="objText">Find the source of the child's voice</div>
+              <div class="obj-dist" id="objDist">142 m</div>
+            </div>
+
+            <!-- HUD: radio -->
+            <div class="hud-radio" id="hudRadio">
+              <span class="rdot"></span> CH 4 · <span id="hudRadioTxt">silent</span>
+            </div>
+
+            <!-- HUD: vitals -->
+            <div class="hud-vitals">
+              <div class="vital"><label>HP</label><div class="vbar"><i id="hpBar"></i></div></div>
+              <div class="vital"><label>STA</label><div class="vbar sta"><i id="staBar"></i></div></div>
+              <div class="vital"><label>FEAR</label><div class="vbar fear"><i id="fearBar"></i></div></div>
+              <div class="vital"><label>BAT</label><div class="vbar bat"><i id="batBar"></i></div></div>
+            </div>
+
+            <!-- HUD: weapon -->
+            <div class="hud-weapon">
+              <div class="w-name" id="wName">K-9 Service Pistol</div>
+              <div class="w-ammo"><b id="ammoMag">8</b> / <span id="ammoRes">16</span></div>
+              <div class="w-dur">DURABILITY <i><b id="durBar"></b></i></div>
+            </div>
+
+            <!-- HUD: vehicle -->
+            <div class="hud-vehicle hidden" id="hudVehicle">
+              <div>HILUX-PATTERN PICKUP</div>
+              <div class="veh-row"><span>FUEL</span><i><b id="fuelBar"></b></i></div>
+              <div class="veh-row"><span>ENGINE</span><i><b id="engBar"></b></i></div>
+              <div class="veh-speed"><b id="vehSpeed">0</b> km/h</div>
+            </div>
+
+            <div class="hud-log" id="hudLog"></div>
+            <div class="hud-hallucination" id="hudHallu"></div>
+          </div>
+
+          <div class="hud-controls">
+            <button class="btn btn-ghost btn-sm" data-act="fire">Fire</button>
+            <button class="btn btn-ghost btn-sm" data-act="reload">Reload</button>
+            <button class="btn btn-ghost btn-sm" data-act="sprint">Sprint</button>
+            <button class="btn btn-ghost btn-sm" data-act="flash">Flashlight</button>
+            <button class="btn btn-ghost btn-sm" data-act="dark">Stay in darkness</button>
+            <button class="btn btn-ghost btn-sm" data-act="hurt">Take damage</button>
+            <button class="btn btn-ghost btn-sm" data-act="heal">Use medkit</button>
+            <button class="btn btn-ghost btn-sm" data-act="drive">Enter vehicle</button>
+            <button class="btn btn-ghost btn-sm" data-act="radio">Use radio</button>
+          </div>
+        </div>
+
+        <div class="fear-stages">
+          <div class="fstage"><b>0–30 · Uneasy</b><p>Footsteps behind you. Dogs barking somewhere far away. Normal — probably.</p></div>
+          <div class="fstage"><b>30–60 · Shaken</b><p>Breathing grows loud. Sounds become directionally unreliable. Shadows linger where nothing stands.</p></div>
+          <div class="fstage"><b>60–85 · Terrified</b><p>You hear your name whispered. False enemies flicker into existence. Hallways stretch.</p></div>
+          <div class="fstage red"><b>85–100 · Breaking</b><p>Doors appear where there were none. The environment rewrites itself. Nothing is certain.</p></div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feat"><span>🔦</span><h4>Battery Management</h4><p>Flashlights drain. Some creatures hate the light. Others follow it.</p></div>
+          <div class="feat"><span>🔫</span><h4>Tactical Combat</h4><p>Real recoil, slow reloads, weapon durability and scarce ammo. You can't shoot everything.</p></div>
+          <div class="feat"><span>🎒</span><h4>Weight Inventory</h4><p>Grid-based pack. Every medkit you carry is a magazine you leave behind.</p></div>
+          <div class="feat"><span>📻</span><h4>Radio Network</h4><p>Talk to survivors, co-op partners — and things that only pretend to be human.</p></div>
+          <div class="feat"><span>🧗</span><h4>Full Traversal</h4><p>Walk, sprint, crouch, hide, climb, jump, swim and drive across a connected region.</p></div>
+          <div class="feat"><span>🧩</span><h4>Environmental Puzzles</h4><p>Restore power, reroute pumps, decode broadcasts and open what was sealed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VEHICLES ============ -->
+    <section class="section" id="vehicles">
+      <div class="container">
+        <p class="eyebrow">05 — THE GARAGE</p>
+        <h2 class="section-title">Everything left behind still runs. Mostly.</h2>
+        <p class="lead narrow">Abandoned vehicles across the city — each with fuel, damage, working lights and doors, tyre damage, unique handling and storage. Some need keys. Some need repairs. Some only exist in one district.</p>
+        <div class="filters" id="vehFilters">
+          <button class="chip active" data-f="all">All</button>
+          <button class="chip" data-f="Civilian">Civilian</button>
+          <button class="chip" data-f="Tactical">Tactical</button>
+          <button class="chip" data-f="Emergency">Emergency</button>
+          <button class="chip" data-f="Water">Water</button>
+        </div>
+        <div class="veh-grid" id="vehGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ OPERATIVE CREATOR ============ -->
+    <section class="section dark" id="operative">
+      <div class="container">
+        <p class="eyebrow">06 — CREATE YOUR SURVIVOR</p>
+        <h2 class="section-title">Who walks into the dark?</h2>
+        <div class="creator">
+          <div class="creator-preview">
+            <svg id="avatar" viewBox="0 0 300 380" aria-label="Character preview"></svg>
+            <div class="id-card">
+              <div class="id-row"><span>NAME</span><b id="idName">UNKNOWN</b></div>
+              <div class="id-row"><span>STATUS</span><b class="blink">SEARCHING</b></div>
+              <div class="id-row"><span>VOICE</span><b id="idVoice">Calm</b></div>
+            </div>
+          </div>
+          <form class="creator-form" id="creatorForm" onsubmit="return false;">
+            <label>Name<input type="text" id="cName" maxlength="18" placeholder="Enter your name" /></label>
+            <div class="row2">
+              <label>Gender
+                <select id="cGender"><option value="m">Male</option><option value="f">Female</option></select>
+              </label>
+              <label>Voice
+                <select id="cVoice"><option>Calm</option><option>Gruff</option><option>Nervous</option><option>Commanding</option></select>
+              </label>
+            </div>
+            <label>Skin tone</label>
+            <div class="swatches" id="skinSw"></div>
+            <label>Face</label>
+            <div class="opt-row" id="faceOpts"></div>
+            <label>Hairstyle</label>
+            <div class="opt-row" id="hairOpts"></div>
+            <label>Outfit</label>
+            <div class="opt-row" id="outfitOpts"></div>
+            <label>Clothing colour</label>
+            <div class="swatches" id="clothSw"></div>
+            <div class="creator-actions">
+              <button class="btn btn-ghost btn-sm" id="randomBtn" type="button">🎲 Randomise</button>
+              <button class="btn btn-blood btn-sm" id="saveOp" type="button">Save Survivor</button>
+            </div>
+            <p class="saved-msg" id="savedMsg"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MULTIPLAYER ============ -->
+    <section class="section" id="multiplayer">
+      <div class="container">
+        <p class="eyebrow">07 — NOBODY SURVIVES ALONE</p>
+        <h2 class="section-title">Explore the same dead city together.</h2>
+        <div class="mp-grid">
+          <div class="mp-modes">
+            <div class="mode"><h4>Co-op Campaign</h4><p>Up to 4 players through all ten districts. Shared story decisions — majority vote at key moments.</p></div>
+            <div class="mode"><h4>Team Missions</h4><p>Side operations: restore a substation, recover a convoy, extract a survivor under fire.</p></div>
+            <div class="mode"><h4>Survival Challenge</h4><p>Weekly modifiers. No flashlights. One magazine. Permanent night. Leaderboards reset Sundays.</p></div>
+            <div class="mode"><h4>Last Light</h4><p>Large-scale multiplayer survival. Squads drop into the city. The creatures don't pick sides.</p></div>
+          </div>
+          <div class="leaderboard">
+            <div class="lb-head">
+              <h4>Survival Leaderboard</h4>
+              <div class="lb-tabs" id="lbTabs">
+                <button class="chip active" data-t="weekly">Weekly</button>
+                <button class="chip" data-t="all">All-time</button>
+              </div>
+            </div>
+            <ol class="lb-list" id="lbList"></ol>
+            <div class="lb-perks">
+              <span>🏅 Achievements</span><span>⭐ XP &amp; Ranks</span><span>👕 Unlockable outfits</span><span>👥 Friends &amp; Profiles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENDINGS ============ -->
+    <section class="section dark underground" id="endings">
+      <div class="container">
+        <p class="eyebrow">08 — THE SOURCE · DEEPEST CHAMBER</p>
+        <h2 class="section-title">Something beneath Etche is breathing.</h2>
+        <p class="lead narrow">Your choices across all ten districts — who you saved, what you read, what you left buried — shape the final chamber. Then you decide.</p>
+        <div class="endings">
+          <button class="ending" data-e="destroy">
+            <span class="e-num">I</span><h3>DESTROY IT</h3><p>Collapse the source. Risk taking part of the city down with it.</p>
+          </button>
+          <button class="ending" data-e="escape">
+            <span class="e-num">II</span><h3>ESCAPE</h3><p>Get out of Port Harcourt alive. Leave the mystery unsolved.</p>
+          </button>
+          <button class="ending" data-e="truth">
+            <span class="e-num">III</span><h3>UNCOVER THE TRUTH</h3><p>Stay behind. Learn what really happened beneath the city.</p>
+          </button>
+        </div>
+        <div class="ending-out" id="endingOut"></div>
+      </div>
+    </section>
+
+    <!-- ============ SOUNDTRACK ============ -->
+    <section class="section" id="sound">
+      <div class="container sound-grid">
+        <div>
+          <p class="eyebrow">09 — ORIGINAL SCORE</p>
+          <h2 class="section-title">Silence is the warning.</h2>
+          <p>An original soundtrack built on the feeling of 1990s–2000s Nigerian horror: low distorted drums, old-style percussion patterns, haunted vocal textures, radio distortion and dark synths. No samples. No borrowed audio.</p>
+          <p>The music goes almost completely silent right before major encounters. When it stops — run.</p>
+        </div>
+        <div class="mixer">
+          <div class="mix-row"><span>Rain &amp; Thunder</span><input type="range" min="0" max="100" value="60" data-ch="rain" /></div>
+          <div class="mix-row"><span>Low Drone</span><input type="range" min="0" max="100" value="50" data-ch="drone" /></div>
+          <div class="mix-row"><span>Distant Drums</span><input type="range" min="0" max="100" value="45" data-ch="drums" /></div>
+          <div class="mix-row"><span>Generator Hum</span><input type="range" min="0" max="100" value="25" data-ch="gen" /></div>
+          <div class="mix-buttons">
+            <button class="btn btn-ghost btn-sm" id="mixPlay">▶ Play score</button>
+            <button class="btn btn-blood btn-sm" id="mixSilence">Trigger encounter</button>
+          </div>
+          <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOIN ============ -->
+    <section class="section dark join" id="join">
+      <div class="container join-box">
+        <p class="eyebrow flicker">THE BLACKOUT HAS BEGUN</p>
+        <h2 class="section-title">Port Harcourt is empty.<br /><span class="red">Something is still there.</span></h2>
+        <form class="join-form" id="joinForm">
+          <input type="email" id="joinEmail" placeholder="your@email.com" required aria-label="Email address" />
+          <select id="joinPlat" aria-label="Platform"><option>PC</option><option>PlayStation</option><option>Xbox</option></select>
+          <button class="btn btn-blood" type="submit">Join the Search Party</button>
+        </form>
+        <p class="join-msg" id="joinMsg"></p>
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot-grid">
+      <div>
+        <div class="logo"><span class="logo-mark">◐</span><span>THE LOST CITY<small>PORT HARCOURT</small></span></div>
+        <p class="muted">A work of fiction. Locations are reimagined for an original game world. All characters, creatures, music and visuals are original.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#story">Story</a><a href="#levels">Levels</a><a href="#creatures">Creatures</a><a href="#vehicles">Vehicles</a><a href="#multiplayer">Co-op</a><a href="#join">Wishlist</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 The Lost City: Port Harcourt. Concept site.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
